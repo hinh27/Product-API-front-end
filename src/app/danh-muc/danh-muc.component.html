@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div id="custom-search-input">
+      <div *ngIf="isShow"
+           class="alert {{ (isSuccess) ? 'alert-success' : 'alert-danger' }}"
+           role="alert">
+        {{message}}
+      </div>
+      <form [formGroup]="formGroup">
+        <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group" role="group" aria-label="First group">
+    <button type="button" class="btn btn-success" routerLink="them-danh-muc">Thêm mới</button>
+  </div>
+  <div class="input-group">
+    <input class="form-control mr-sm-2" type="search" [(ngModel)]="name" (input)="Search()" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </div>
+</div>
+
+<table class="table" id="table">
+
+  <thead class="thead-dark">
+
+  <tr>
+    <th>ID</th>
+    <th>Tên</th>
+    <th>Giá</th>
+    <th>Loại</th>
+    <th>Mô tả</th>
+    <th>Chức năng</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let i of categories">
+    <td>{{i.id}}</td>
+    <td>{{i.name}}</td>
+    <td>{{i.gia}}</td>
+    <td>{{i.loai}}</td>
+    <td>{{i.description}}</td>
+    <td>
+      <button class="btn btn-danger btn-xs" (click)="delete(i.id)"><span class="glyphicon glyphicon-remove"></span>Xóa</button>
+      <button class="btn btn-primary btn-xs" routerLink='/edit/{{i.id}}' (click)=" update(i.id)"><span
+        class="glyphicon glyphicon-remove"></span> Sửa
+      </button>
+    </td>
+
+  </tr>
+  </tbody>
+</table>

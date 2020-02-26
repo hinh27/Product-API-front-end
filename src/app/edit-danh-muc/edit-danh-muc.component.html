@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div *ngIf="isShow"
+           class="alert {{ (isSuccess) ? 'alert-success' : 'alert-danger' }}"
+           role="alert">
+        {{message}}
+      </div>
+      <form [formGroup]="formGroup">
+        <fieldset>
+
+          <div class="form-group">
+            <label><span class="req"></span> Tên sản phẩm </label>
+            <input class="form-control" type="text" name="tenDanhMuc"
+                   formControlName="categoryName"/>
+          </div>
+
+          <div class="form-group">
+            <label><span class="req">* </span>Giá</label>
+            <input class="form-control" type="text" name="tenDanhMuc"
+                   formControlName="categoryGia"/>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Loại sản phẩm</label>
+            <select class="form-control" id="exampleFormControlSelect1"formControlName="categoryLoai">
+              <option>Điện thoại</option>
+              <option>Máy tính</option>
+              <option>Tủ lạnh</option>
+              <option>Điều hòa</option>
+              <option>Tivi</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label><span class="req">* </span>Mô tả</label>
+            <input class="form-control" type="text" name="tenDanhMuc"
+                   formControlName="categoryDescription"/>
+          </div>
+          <div class="form-group">
+            <button (click)="edit()" class="btn btn-primary">Sửa thông tin</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>

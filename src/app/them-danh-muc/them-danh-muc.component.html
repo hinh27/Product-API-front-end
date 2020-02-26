@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div *ngIf="isShow"
+           class="alert {{ (isSuccess) ? 'alert-success' : 'alert-danger' }}"
+           role="alert">
+        {{message}}
+      </div>
+      <form [formGroup]="formGroup" (ngSubmit)="save()">
+        <fieldset>
+
+          <div class="form-group">
+            <label><span class="req"></span> Tên sản phẩm </label>
+            <input class="form-control" type="text" name="tenDanhMuc"
+                   formControlName="categoryName"/>
+          </div>
+
+          <div class="form-group">
+            <label><span class="req">* </span>Giá</label>
+            <input class="form-control" type="text" name="tenDanhMuc"
+                   formControlName="categoryGia"/>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Loại sản phẩm</label>
+            <select class="form-control" id="exampleFormControlSelect1"formControlName="categoryLoai">
+              <option>Điện thoại</option>
+              <option>Máy tính</option>
+              <option>Tủ lạnh</option>
+              <option>Điều hòa</option>
+              <option>Tivi</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label><span class="req">* </span>Mô tả</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="categoryDescription"></textarea>
+
+          </div>
+          <div class="form-group">
+
+            <button type="button" class="btn btn-success" (click)="save()">Thêm</button>
+          </div>
+
+        </fieldset>
+      </form>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>
